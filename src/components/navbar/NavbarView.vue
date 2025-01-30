@@ -18,7 +18,7 @@
                 <a @click="navigateTo('event')" :class="`${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Event</a>
               </li>
               <li class="ml-2">
-                <a href="/tiket" class="flex md:hidden items-center justify-between gap-2 bg-white text-main border border-main py-2 px-4 rounded-lg font-[500] hover:bg-main hover:text-white duration-200" @mouseover="isHovered = true" @mouseleave="isHovered = false"><IcPay :color="isHovered ? '#286895' : 'white'" className="w-[24px]"/> Beli Tiket</a>
+                <a href="/tiket" class="flex md:hidden items-center justify-between gap-2 bg-white text-main border border-main py-2 px-4 rounded-lg font-[500] hover:bg-main hover:text-white duration-200 w-fit" @mouseover="isHovered = true" @mouseleave="isHovered = false"><IcPay :color="isHovered ? '#286895' : 'white'" className="w-[24px]"/> Beli Tiket</a>
               </li>
             </ul>
           </transition>
