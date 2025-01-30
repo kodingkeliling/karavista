@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="max-w-[1080px] mx-auto flex justify-center items-center text-center text-sm mt-4 border-t-2 border-gray-200 pt-2">
-        <p class="mr-4">&copy; 2025 <a href="https://www.instagram.com/muhamadjamaludinpad/" target="_blank" class="hover:font-medium">Jamjam</a>. Powerd by KodingKeliling.</p>
+        <p class="mr-4">&copy; 2025 <a href="https://www.instagram.com/muhamadjamaludinpad/" target="_blank" class="hover:font-medium">Jamjam</a>. Powered by KodingKeliling.</p>
       </div>
     </footer>
   </template>
