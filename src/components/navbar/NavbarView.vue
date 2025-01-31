@@ -9,13 +9,13 @@
                   </div>
               </li>
               <li class="py-2">
-                <a @click="navigateTo('home')" :class="`${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Home</a>
+                <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Branda</a>
               </li>
               <li class="mr-4">
-                <a  @click="navigateTo('about')" :class="`${ isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`" >About Us</a>
+                <a  @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isHomeSectionInView && isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`" >Tentang Kami</a>
               </li>
               <li class="py-2">
-                <a @click="navigateTo('event')" :class="`${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Event</a>
+                <a @click="navigateTo('event')"  :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isAboutSectionInView && isEventSectionInView ? 'text-main' : '' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Acara</a>
               </li>
               <li class="ml-2">
                 <a href="/tiket" class="flex md:hidden items-center justify-between gap-2 bg-white text-main border border-main py-2 px-4 rounded-lg font-[500] hover:bg-main hover:text-white duration-200 w-fit" @mouseover="isHovered = true" @mouseleave="isHovered = false"><IcPay :color="isHovered ? '#286895' : 'white'" className="w-[24px]"/> Beli Tiket</a>
@@ -38,13 +38,13 @@
         </div>
         <ul class="hidden md:flex">
           <li class="mr-4">
-            <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Home</a>
+            <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Branda</a>
           </li>
           <li class="mr-4">
-            <a @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium transition-colors duration-300 hover:text-main uppercase`">About Us</a>
+            <a @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isHomeSectionInView && isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium transition-colors duration-300 hover:text-main uppercase`">Tentang Kami</a>
           </li>
           <li class="mr-4">
-            <a @click="navigateTo('event')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Event</a>
+            <a @click="navigateTo('event')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isAboutSectionInView && isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Acara</a>
           </li>
         </ul>
         <a href="/tiket" class="hidden md:flex items-center justify-between gap-2 bg-white text-main border border-main py-2 px-4 rounded-lg font-[500] hover:bg-main hover:text-white duration-200" @mouseover="isHovered = true" @mouseleave="isHovered = false"><IcPay :color="isHovered ? '#286895' : 'white'" className="w-[24px]"/> Beli Tiket</a>
@@ -68,7 +68,6 @@ export default {
       isHomeSectionInView: false,
       isAboutSectionInView: false,
       isEventSectionInView: false,
-      isCommitteeSectionInView: false,
       isHovered: false, 
     };
   },
@@ -77,19 +76,17 @@ export default {
     
     const options = {
       rootMargin: '-50px 0px -50px 0px',
-      threshold: 0.5
+      threshold: 0
     };
   
     const observer = new IntersectionObserver(this.handleIntersection, options);
     const homeSection = document.getElementById('home');
     const aboutSection = document.getElementById('about');
     const eventSection = document.getElementById('event');
-    const coordinatorSection = document.getElementById('coordinator');
 
     observer.observe(homeSection);
     observer.observe(aboutSection);
     observer.observe(eventSection);
-    observer.observe(coordinatorSection);
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll); 
@@ -108,9 +105,6 @@ export default {
             case 'event':
               this.isEventSectionInView = true;
               break;
-            case 'coordinator':
-              this.isContactSectionInView = true;
-              break;
             default:
               break;
           }
@@ -124,9 +118,6 @@ export default {
               break;
             case 'event':
               this.isEventSectionInView = false;
-              break;
-            case 'coordinator':
-              this.isCoordinatorSectionInView = false;
               break;
             default:
               break;

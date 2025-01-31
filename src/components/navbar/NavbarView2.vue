@@ -9,13 +9,13 @@
                 </router-link>
               </li>
               <li class="py-2">
-               <router-link to="/" @click="navigateTo('home')" :class="`${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Home</router-link>
+               <router-link to="/" @click="navigateTo('home')" :class="`${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Branda</router-link>
               </li>
               <li class="mr-4">
-               <router-link to="/" @click="navigateTo('about')" :class="`${ isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`" >About Us</router-link>
+               <router-link to="/" @click="navigateTo('about')" :class="`${ !isHomeSectionInView && isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Tentang Kami</router-link>
               </li>
               <li class="py-2">
-                <router-link to="/" @click="navigateTo('event')" :class="`${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Event</router-link>
+                <router-link to="/" @click="navigateTo('event')" :class="`${ !isAboutSectionInView && isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Acara</router-link>
               </li>
               <li class="ml-2">
                 <a href="/tiket" class="flex md:hidden items-center justify-between gap-2 border border-main py-2 px-4 rounded-lg font-[500] bg-main text-white duration-200 w-fit"><IcPay color="#286895" className="w-[24px]"/> Beli Tiket</a>
@@ -24,10 +24,10 @@
           </transition>
     <div class="max-w-[1200px] mx-auto">
       <div class="container mx-auto flex justify-between items-center">
-        <div @click="navigateTo('home')" class="cursor-pointer flex items-center">
+        <router-link to="/" @click="navigateTo('home')" class="cursor-pointer flex items-center">
           <img :src="require('@/assets/logo.png')" alt="Pasanggiri Seni Sunda" class="w-[50px] mr-2">
           <h1 class="text-main text-lg font-semibold">Karavista</h1>
-        </div>
+        </router-link>
         <div class="md:hidden">
           <button @click="toggleMenu" :class="`${ isScrolled ? 'text-gray-600 hover:text-gray-800 focus:text-gray-800' : 'text-gray-600 hover:text-gray-800 focus:text-gray-800' } block focus:outline-none`">
             <svg class="w-8 h-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,13 +38,13 @@
         </div>
         <ul class="hidden md:flex">
           <li class="mr-4">
-           <router-link to="/" @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Home</router-link>
+           <router-link to="/" @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Branda</router-link>
           </li>
           <li class="mr-4">
-            <router-link to="/" @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium transition-colors duration-300 hover:text-main uppercase`">About Us</router-link>
+            <router-link to="/" @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium transition-colors duration-300 hover:text-main uppercase`">Tentang Kami</router-link>
           </li>
           <li class="mr-4">
-            <router-link to="/" @click="navigateTo('event')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Event</router-link>
+            <router-link to="/" @click="navigateTo('event')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isEventSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Acara</router-link>
           </li>
         </ul>
         <a href="/tiket" class="hidden md:flex items-center justify-between gap-2 border border-main py-2 px-4 rounded-lg font-[500] bg-main text-white duration-200"><IcPay color="#286895" className="w-[24px]"/> Beli Tiket</a>
@@ -107,9 +107,6 @@ export default {
             case 'event':
               this.isEventSectionInView = true;
               break;
-            case 'coordinator':
-              this.isContactSectionInView = true;
-              break;
             default:
               break;
           }
@@ -123,9 +120,6 @@ export default {
               break;
             case 'event':
               this.isEventSectionInView = false;
-              break;
-            case 'coordinator':
-              this.isCoordinatorSectionInView = false;
               break;
             default:
               break;

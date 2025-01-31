@@ -15,8 +15,22 @@ const routes = [
       },
       {
         path: "/tiket",
-        name: "Tiket",
-        component: () => import("@/views/pages/TiketView.vue"),
+        name: "TiketView",
+        component: () => import("@/views/pages/TicketView.vue"),
+        meta: {
+          title: 'Karavista | Test',
+          titleTemplate: '%s | Tiket',
+          metaTags: [
+            {
+              name: 'description',
+              content: 'Deskripsi untuk Tiket Karavista'
+            },
+            {
+              property: 'og:description',
+              content: 'Deskripsi untuk Tiket Karavista'
+            }
+          ]
+        }
     },
     ],
   },
