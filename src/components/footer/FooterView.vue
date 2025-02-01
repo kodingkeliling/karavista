@@ -13,9 +13,9 @@
         <div>
           <p class="text-lg mb-2"><strong>Contact Us:</strong></p>
           <ul>
-            <li><span class="text-sm">Whatsapp: </span> <a href="http://wa.me/6285156632360?text=Hallo%20kak,%20ada%20yang%20saya%20bisa%20bantu?" target="_blank" class="text-sm hover:text-gray-400">+62 851-5663-2360 (Anya)</a></li>
-            <li><span class="text-sm">Email: </span> <a href="mailto:psslismaunpas@gmail.com" target="_blank" class="text-sm hover:text-gray-400">psslismaunpas@gmail.com</a></li>
-            <li><span class="text-sm">Address: </span> <a href="https://maps.app.goo.gl/5zWyjKzD2Kq7cVaw8" class="text-sm hover:text-gray-400">Jl. Tamansari No. 6-8 Kota Bandung, Jawa Barat Indonesia</a></li>
+            <li><span class="text-sm">Whatsapp: </span> <a href="http://wa.me/6282240031723?text=Hallo%20kak,%20ada%20yang%20saya%20bisa%20bantu?" target="_blank" class="text-sm hover:text-gray-400">+62 822 4003 1723 (Karavista)</a></li>
+            <li><span class="text-sm">Email: </span> <a href="mailto:krikil2024@gmail.com" target="_blank" class="text-sm hover:text-gray-400">krikil2024@gmail.com</a></li>
+            <li><span class="text-sm">Address: </span> <a href="https://maps.app.goo.gl/5zWyjKzD2Kq7cVaw8" class="text-sm hover:text-gray-400">Jl. Tamansari No. 6-8 Kota Bandung, Jawa Barat, Indonesia</a></li>
           </ul>
           <div class="flex gap-2 mt-2">
           <a href="https://www.instagram.com/karavista2.0/" target="_blank" class="bg-main hover:opacity-[0.8] flex w-fit p-2 rounded-full" >
