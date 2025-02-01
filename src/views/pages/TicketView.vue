@@ -9,19 +9,12 @@
 
 <script>
 export default {
-  name: "TicketView",
-  metaInfo: {
-  title: 'Karavista | a',
-  titleTemplate: '%s | Tiket',
-  meta: [
-    { name: 'description', content: 'Beli tiket Karavista dengan mudah dan cepat!' },
-    { name: 'keywords', content: 'Karavista, tiket, event, beli tiket online' },
-    { property: 'og:title', content: 'Karavista | a' },
-    { property: 'og:description', content: 'Beli tiket Karavista dengan mudah dan cepat!' },
-    { property: 'og:image', content: 'https://example.com/karavista-thumbnail.jpg' },
-    { property: 'og:type', content: 'website' }
-  ]
-},
+  metaInfo() {
+    return {
+      title: "Tiket",
+      titleTemplate: "Karavista | %s",
+    };
+  },
   mounted() {
     console.log("Title saat ini:", document.title);
     this.loadTallyEmbeds();

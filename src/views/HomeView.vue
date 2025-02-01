@@ -14,6 +14,12 @@
   import RegistView from "@/components/content/RegistView.vue";
 
   export default {
+	metaInfo() {
+    return {
+      title: "Home",
+      titleTemplate: "Karavista | %s",
+    };
+  },
 	name: "HomeView",
 	components: {
 		HeaderView,

@@ -12,25 +12,14 @@ const routes = [
         path: "/",
         name: "HomeView",
         component: () => import("@/views/HomeView.vue"),
+        meta: {
+          title: 'Home Page - Example App',
+        }
       },
       {
         path: "/tiket",
         name: "TiketView",
         component: () => import("@/views/pages/TicketView.vue"),
-        meta: {
-          title: 'Karavista | Test',
-          titleTemplate: '%s | Tiket',
-          metaTags: [
-            {
-              name: 'description',
-              content: 'Deskripsi untuk Tiket Karavista'
-            },
-            {
-              property: 'og:description',
-              content: 'Deskripsi untuk Tiket Karavista'
-            }
-          ]
-        }
     },
     ],
   },
