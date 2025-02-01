@@ -9,7 +9,7 @@
                   </div>
               </li>
               <li class="py-2">
-                <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Branda</a>
+                <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`">Beranda</a>
               </li>
               <li class="mr-4">
                 <a  @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isHomeSectionInView && isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer block px-4 py-2 font-medium hover:text-main uppercase`" >Tentang Kami</a>
@@ -38,7 +38,7 @@
         </div>
         <ul class="hidden md:flex">
           <li class="mr-4">
-            <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Branda</a>
+            <a @click="navigateTo('home')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${  isHomeSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium hover:text-main uppercase`">Beranda</a>
           </li>
           <li class="mr-4">
             <a @click="navigateTo('about')" :class="`${ isScrolled ? '' : 'text-gray-600' } ${ !isHomeSectionInView && isAboutSectionInView ? 'text-main' : 'text-gray-800' } cursor-pointer font-medium transition-colors duration-300 hover:text-main uppercase`">Tentang Kami</a>
