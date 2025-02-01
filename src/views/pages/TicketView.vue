@@ -16,7 +16,6 @@ export default {
     };
   },
   mounted() {
-    console.log("Title saat ini:", document.title);
     this.loadTallyEmbeds();
   },
   watch: {
