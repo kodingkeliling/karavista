@@ -27,12 +27,11 @@
     data() {
       return {
         events: [
-          { name: "Musik", description: " ", image: require('@/assets/images/image3.jpg'), link: "/daftar-jaipong-tunggal" },
-          { name: "Tarian Tradisional", description: " ", image: require('@/assets/images/image2.jpg'), link: "/daftar-jaipong-rampak" },
-          { name: "Tarian Modern", description: " ", image: require('@/assets/images/image1.jpg'), link: "/daftar-pupuh" },
-          { name: "Penayangan Film", description: " ", image: require('@/assets/images/image4.jpg'), link: "/daftar-sajak"},
-          { name: "Teater", description: " ", image: require('@/assets/images/image4.jpg'), link: "/daftar-pencak-silat" },
-          { name: "Drama Musikal", description: " ", image: require('@/assets/images/image5.jpg'), link: "/daftar-pencak-silat" }
+          { name: "Teater & Sastra", description: " ", image: require('@/assets/images/image5.jpg'), link: "/daftar-pencak-silat" },
+          { name: "Kesenian Daerah Sunda", description: " ", image: require('@/assets/images/image2.jpg'), link: "/daftar-jaipong-rampak" },
+          { name: "Paduan Suara & Musik", description: " ", image: require('@/assets/images/image3.jpg'), link: "/daftar-jaipong-tunggal" },
+          { name: "Tari Kreasi", description: " ", image: require('@/assets/images/image1.jpg'), link: "/daftar-pupuh" },
+          { name: "Fotografi", description: " ", image: require('@/assets/images/image6.jpg'), link: "/daftar-sajak"},
         ]
       };
     },
