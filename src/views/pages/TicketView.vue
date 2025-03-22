@@ -1,7 +1,13 @@
 <template>
   <div class="max-w-[1080px] mx-auto pb-4 pt-[80px] px-2 font-bold text-main">
     <div class="bg-white shadow-md rounded-lg p-6">
-      <iframe :data-tally-src="tallySrc" loading="lazy" width="100%" height="2552" frameborder="0" marginheight="0" marginwidth="0" title="Karavista"></iframe>
+      <div v-if="formClosed" class="text-center text-main text-xl h-[200px] flex items-center justify-center font-medium">
+        <p>
+          Terima kasih atas antusiasme Anda! 🎉 <br />
+          Kuota pembelian telah terpenuhi. Sampai jumpa di acara kami! 😊
+        </p>
+      </div>
+      <iframe v-else :data-tally-src="tallySrc" loading="lazy" width="100%" height="2552" frameborder="0" marginheight="0" marginwidth="0" title="Karavista"></iframe>
     </div>
   </div>
 </template>
@@ -23,12 +29,17 @@ export default {
       umum2: 0,
       siswa1: 0,
       siswa2: 0,
+      maxUmum: 50,
+      maxSiswa: 281,
     };
   },
   computed: {
     ...mapState('sheet', ['dataSheets']),
     tallySrc() {
       return `https://tally.so/embed/wbYLy6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&umum1=${this.umum1}&umum2=${this.umum2}&siswa1=${this.siswa1}&siswa2=${this.siswa2}`;
+    },
+    formClosed() {
+      return this.umum1 >= this.maxUmum && this.umum2 >= this.maxUmum && this.siswa1 >= this.maxSiswa && this.siswa2 >= this.maxSiswa;
     },
   },
   async mounted() {

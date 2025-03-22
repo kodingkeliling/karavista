@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="flex flex-col h-screen">
     <NavbarView v-if="currentUrl == '/'"/>
     <NavbarView2 v-else/>
     <div>
     <router-view />
   </div>
-   <FooterView/>
+   <FooterView class="mt-auto"/>
   </div>
 </template>
 
