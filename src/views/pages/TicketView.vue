@@ -1,13 +1,29 @@
 <template>
-  <div class="max-w-[1080px] mx-auto pb-4 pt-[80px] px-2 font-bold text-main">
-    <div class="bg-white shadow-md rounded-lg p-6">
+  <div class="max-w-[1080px] mx-auto pb-4 py-[40px] px-2 font-bold text-main">
+    <div class="bg-white shadow-md rounded-lg p-6 relative">
       <div v-if="formClosed" class="text-center text-main text-xl h-[200px] flex items-center justify-center font-medium">
         <p>
           Terima kasih atas antusiasme Anda! 🎉 <br />
           Kuota pembelian telah terpenuhi. Sampai jumpa di acara kami! 😊
         </p>
       </div>
-      <iframe v-else :data-tally-src="tallySrc" loading="lazy" width="100%" height="2552" frameborder="0" marginheight="0" marginwidth="0" title="Karavista"></iframe>
+
+      <div v-if="loading" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
+        <div class="animate-spin rounded-full h-10 w-10 border-4 border-main border-t-transparent"></div>
+      </div>
+
+      <iframe
+        v-if="!formClosed"
+        ref="tallyIframe"
+        :data-tally-src="tallySrc"
+        loading="lazy"
+        width="100%"
+        :height="loading ? 500 : 2552"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Karavista"
+      ></iframe>
     </div>
   </div>
 </template>
@@ -25,6 +41,7 @@ export default {
   },
   data() {
     return {
+      loading: true, // Buffer loading aktif saat awal
       umum1: 0,
       umum2: 0,
       siswa1: 0,
@@ -49,6 +66,7 @@ export default {
       console.error("Error fetching data:", error);
     }
     this.loadTallyEmbeds();
+    this.observeIframeLoad();
   },
   methods: {
     ...mapActions('sheet', [GET_SHEETS]),
@@ -81,6 +99,19 @@ export default {
         s.onerror = () => console.error("Failed to load Tally script");
         d.body.appendChild(s);
       }
+    },
+    observeIframeLoad() {
+      const iframe = this.$refs.tallyIframe;
+      if (!iframe) return;
+
+      const observer = new MutationObserver(() => {
+        if (iframe.src) {
+          this.loading = false; // Sembunyikan loading ketika iframe telah dimuat
+          observer.disconnect(); // Hentikan observer setelah iframe selesai dimuat
+        }
+      });
+
+      observer.observe(iframe, { attributes: true, attributeFilter: ["src"] });
     },
   },
 };
