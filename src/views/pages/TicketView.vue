@@ -8,7 +8,7 @@
         </p>
       </div>
 
-      <div v-if="loading && formClosed" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
+      <div v-if="loading && !formClosed" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
         <div class="animate-spin rounded-full h-10 w-10 border-4 border-main border-t-transparent"></div>
       </div>
 
@@ -41,13 +41,13 @@ export default {
   },
   data() {
     return {
-      loading: true, // Buffer loading aktif saat awal
+      loading: true,
       umum1: 0,
       umum2: 0,
       siswa1: 0,
       siswa2: 0,
-      maxUmum: 0,
-      maxSiswa: 0,
+      maxUmum: 9999,
+      maxSiswa: 9999,
     };
   },
   computed: {
@@ -108,8 +108,8 @@ export default {
 
       const observer = new MutationObserver(() => {
         if (iframe.src) {
-          this.loading = false; // Sembunyikan loading ketika iframe telah dimuat
-          observer.disconnect(); // Hentikan observer setelah iframe selesai dimuat
+          this.loading = false;
+          observer.disconnect();
         }
       });
 
