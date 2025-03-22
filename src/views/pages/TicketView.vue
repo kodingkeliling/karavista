@@ -46,14 +46,14 @@ export default {
       umum2: 0,
       siswa1: 0,
       siswa2: 0,
-      maxUmum: 50,
-      maxSiswa: 281,
+      maxUmum: 0,
+      maxSiswa: 0,
     };
   },
   computed: {
     ...mapState('sheet', ['dataSheets']),
     tallySrc() {
-      return `https://tally.so/embed/wbYLy6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&umum1=${this.umum1}&umum2=${this.umum2}&siswa1=${this.siswa1}&siswa2=${this.siswa2}`;
+      return `https://tally.so/embed/wbYLy6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&umum1=${this.umum1}&umum2=${this.umum2}&siswa1=${this.siswa1}&siswa2=${this.siswa2}&maxUmum=${this.maxUmum}&maxSiswa=${this.maxSiswa}`;
     },
     formClosed() {
       return this.umum1 >= this.maxUmum && this.umum2 >= this.maxUmum && this.siswa1 >= this.maxSiswa && this.siswa2 >= this.maxSiswa;
@@ -76,6 +76,8 @@ export default {
       this.umum2 = this.dataSheets["Jumlah Sesi 2 Umum"];
       this.siswa1 = this.dataSheets["Jumlah Sesi 1 Siswa"];
       this.siswa2 = this.dataSheets["Jumlah Sesi 2 Siswa"];
+      this.maxUmum = this.dataSheets["MAX UMUM"];
+      this.maxSiswa = this.dataSheets["MAX SISWA"];
     },
     loadTallyEmbeds() {
       const d = document;
