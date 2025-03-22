@@ -8,7 +8,7 @@
         </p>
       </div>
 
-      <div v-if="loading && !formClosed" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
+      <div v-if="loading && formClosed" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
         <div class="animate-spin rounded-full h-10 w-10 border-4 border-main border-t-transparent"></div>
       </div>
 
